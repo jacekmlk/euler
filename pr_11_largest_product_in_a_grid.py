@@ -26,10 +26,32 @@ The product of these numbers is 26 \times 63 \times 78 \times 14 = 1788696.
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20 \times 20 grid?
 '''
 
-def largest_product_in_a_grid(grid: list[list]):
-    # left right   
-     
-    pass
+def largest_product_in_a_grid(grid: list[list], gate):
+    # left right
+    max = 0
+    x = 20
+    y = 20
+    # left right
+    for row in range(y):
+        for col in range(x - gate):
+            sum_array = 1
+            for i in range(gate):
+                sum_array = sum_array * grid[row][col + i]
+            if sum_array > max:
+                max = sum_array
+    # up down
+    for col in range(x):
+        for row in range(y - gate):
+            sum_array = 1
+            for i in range(gate):
+                sum_array = sum_array * grid[row + i][col]
+            if sum_array > max:
+                max = sum_array
+    
+    # diagonally
+    
+    
+    print(sum_array)
 
 
 if __name__ == "__main__":
@@ -57,4 +79,4 @@ if __name__ == "__main__":
     grid = [x.split(" ") for x in grid_lst]
     grid = [[int(s) for s in row] for row in grid]
 
-    largest_product_in_a_grid(grid)
+    largest_product_in_a_grid(grid, 4)
