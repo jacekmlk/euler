@@ -1,3 +1,5 @@
+from collections import deque
+
 '''
 In the 20 \times 20 grid below, four numbers along a diagonal line have been marked in red.
 
@@ -49,6 +51,12 @@ def largest_product_in_a_grid(grid: list[list], gate):
                 max = sum_array
     
     # diagonally
+    for push in range(-19, x):
+        for i in range(x):
+            r = i + push
+            c = i
+            if 0 <= c < 20 and 0 <= r < 20:
+                print(r, c, grid[c][r])
     
     
     print(sum_array)
